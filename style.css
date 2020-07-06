@@ -1,0 +1,22 @@
+.main-menu {
+    background-image: url("img/g5.jpg");
+    color: aliceblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+}
+
+.plat-bg {
+    background-image: url("img/plat1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.plat-bg2 {
+    background-image: url("img/plat2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
