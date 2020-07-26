@@ -3,12 +3,13 @@
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <script src="js/aframe.min.js"></script>
 <script src="js/aframe-ar.js"></script>
+<link rel="stylesheet" href="style.css">
 <body style="margin: 0px; overflow: hidden;">
 
-<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+<!--<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
 
     <a-assets>
-        <a-asset-item id="tree" src="models/pizza.gltf"></a-asset-item>
+        <a-asset-item id="tree" src="models/SaintJacques.glb"></a-asset-item>
     </a-assets>
 
     <a-marker type="pattern" url="data/kanji.patt">
@@ -21,6 +22,95 @@
 
     <a-entity camera></a-entity>
 
-</a-scene>
+</a-scene>-->
+
+<div id="loader-container">
+    <img src="img/tart.png" style="   height: 400px;
+   left: 50%;
+   margin-top: -190px;
+   margin-left: -190px;
+   position: absolute;
+   top: 50%;
+   width: 400px;">
+</div>
+<div class="footer">
+    <p style="color: black; font-size: 40px; font-family: 'Roboto';">Bienvenue sur le menu virtuel de ...</p>
+</div>
+<!--<img src="img/tart.png" style="   height: 250px;
+   left: 50%;
+   margin-top: -125px;
+   margin-left: -125px;
+   position: absolute;
+   top: 40%;
+   width: 250px;">-->
+
+
 </body>
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: whitesmoke;
+        color: white;
+        text-align: center;
+        height: 150px;
+        border-radius: 50px 50px 50px 50px;
+    }
+    body {
+        background-color: #3498db;
+    }
+
+    #loader-container {
+        width: 550px;
+        height: 550px;
+        color: white;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid #3498db;
+        border-radius: 50%;
+        -webkit-animation: borderScale 1s infinite ease-in-out;
+        animation: borderScale 1s infinite ease-in-out;
+    }
+
+    #loadingText {
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        font-size: 2em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @-webkit-keyframes borderScale {
+        0% {
+            border: 5px solid white;
+        }
+        50% {
+            border: 25px solid #3498db;
+        }
+        100% {
+            border: 5px solid white;
+        }
+    }
+
+    @keyframes borderScale {
+        0% {
+            border: 5px solid white;
+        }
+        50% {
+            border: 25px solid #3498db;
+        }
+        100% {
+            border: 5px solid white;
+        }
+    }
+</style>
 </html>
