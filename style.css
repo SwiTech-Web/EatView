@@ -1,1 +1,13 @@
-/*color: #b48c80;*/
+.price {
+    font-size: 35px!important;
+    color: #b48c80!important;
+}
+.description {
+    font-size: 14px;
+    color: #777777!important;
+}
+.title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #161d27;
+    font-size: 18px!important;
+}
