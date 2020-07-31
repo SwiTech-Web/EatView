@@ -1,14 +1,24 @@
+<?php
+session_start();
+require 'Database.php';
+$society = "Switech";
+$db = Database::connect();
+$statement = $db->prepare('SELECT id_company FROM company WHERE company_name = ?');
+$statement->execute(array($society));
+$id = $statement->fetch();
+Database::disconnect();
+?>
 <!doctype html>
 <html lang="fr">
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>AR Menu</title>
+    <title><?=$society;?></title>
 
 </head>
 <body>
@@ -19,25 +29,40 @@
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
 
+
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-    <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div class="my-3 py-3">
-            <h2 class="display-5">La truite de Chamby aux Fleurs de Capucines,</h2>
-            <p class="lead">Légèrement fumée, Pain soufflé et vinaigrette de fromage blanc</p>
-        </div>
-        <div class="plat-bg bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            <a class="btn btn-outline-light font-weight-bold" style="margin-top: 250px; border: 3px solid white;" href="ar.html">Visualisez</a>
-        </div>
-    </div>
-    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-            <h2 class="display-5">Le biscuit moelleux de Poissons du Lac Léman</h2>
-            <p class="lead">(Lotte, Tanche, Brème, Brochet)</br>Emulsion de Berce et Oxalis</p>
-        </div>
-        <div class="plat-bg2 bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            <a class="btn btn-outline-dark font-weight-bold" style="margin-top: 250px; border: 3px solid black;" href="#">Visualisez</a>
-        </div>
-    </div>
+  <?php
+  $db = Database::connect();
+  $statement = $db->query("SELECT * FROM menu where id_company = '$id[0]'");
+  $i = 0;
+  while($menu = $statement->fetch())
+  {
+  if ($i == 0) {
+  echo '<div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">';
+    echo '<div class="my-3 py-3">';
+        echo '<h2 class="display-5">' . $menu['title'] . '</h2>';
+        echo '<p class="lead">' . $menu['description'] . '</p>';
+    echo '</div>';
+    echo '<div class="plat-bg bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url("img/' . $menu['img'] . '.png");">';
+        echo '<a class="btn btn-outline-light font-weight-bold" style="margin-top: 250px; border: 3px solid white;" href="ar.html">Visualisez</a>';
+    echo '</div>';
+  echo '</div>';
+  $i = $i + 1;
+  } else if($i == 1) {
+    echo '<div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">';
+      echo '<div class="my-3 py-3">';
+          echo '<h2 class="display-5">' . $menu['title'] . '</h2>';
+          echo '<p class="lead">' . $menu['description'] . '</p>';
+      echo '</div>';
+      echo '<div class="plat-bg bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url("img/' . $menu['img'] . '.png");">';
+          echo '<a class="btn btn-outline-dark font-weight-bold" style="margin-top: 250px; border: 3px solid black;" href="#">Visualisez</a>';
+      echo '</div>';
+    echo '</div>';
+  $i = $i - 1;
+  }
+
+  }
+  ?>
 </div>
 
 <footer class="bg-dark container py-5 text-center">

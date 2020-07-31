@@ -8,14 +8,6 @@
 }
 
 .plat-bg {
-    background-image: url("img/plat1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.plat-bg2 {
-    background-image: url("img/plat2.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
