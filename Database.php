@@ -2,9 +2,9 @@
 
 class Database
 {
-  private static $dbHost = "";
-  private static $dbName = "";
-  private static $dbUser = "";
+  private static $dbHost = "localhost";
+  private static $dbName = "eatview_db";
+  private static $dbUser = "root";
   private static $dbUserPassword = "";
 
   private static $connection = null;

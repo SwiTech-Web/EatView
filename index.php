@@ -20,6 +20,36 @@ Database::disconnect();
     <link rel="stylesheet" href="style.css">
     <title><?=$society;?></title>
 
+      <style>
+            .card {
+                border-style: solid;
+                border-color: #b48c80;
+                border-width: 2px 2px 2px 2px;
+                border-radius: 15px;
+                margin: 1em 0 1em 0;
+            }
+            .price {
+                font-size: 35px!important;
+                color: #b48c80!important;
+            }
+            .description {
+                font-size: 14px;
+                color: #777777!important;
+            }
+            .title {
+                font-family: 'Montserrat', Arial, sans-serif;
+                color: #161d27;
+                font-size: 18px!important;
+            }
+            h3 {
+                font-family: 'Montez', cursive!important;
+                text-transform: none;
+            }
+            .text-gold {
+                color: #b48c80!important;
+            }
+        </style>
+
 </head>
 <body>
 
@@ -38,29 +68,38 @@ Database::disconnect();
   while($menu = $statement->fetch())
   {
   if ($i == 0) {
-  echo '<div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">';
-    echo '<div class="my-3 py-3">';
-        echo '<h2 class="display-5">' . $menu['title'] . '</h2>';
-        echo '<p class="lead">' . $menu['description'] . '</p>';
-    echo '</div>';
-    echo '<div class="plat-bg bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url("img/' . $menu['img'] . '.png");">';
-        echo '<a class="btn btn-outline-light font-weight-bold" style="margin-top: 250px; border: 3px solid white;" href="ar.html">Visualisez</a>';
-    echo '</div>';
-  echo '</div>';
-  $i = $i + 1;
+      echo '<div class="card">';
+        echo '<div class="card-body">';
+             echo '<img src="img/plat1.png" class="round mx-auto d-block" alt="" style="border-radius: 50%;height: 98px;width: 98px;">';
+             echo '<div class="d-flex justify-content-between align-items-center">';
+                 echo '<div>';
+                     echo '<h5 class="title">' .$menu['title'].'</h5>';
+                     echo '<p class="description">'.$menu['description'].'</p>';
+                     echo '</div>';
+                     echo '<div>';
+                     echo '<hr/> <p class="price">$15</p> <hr/>';
+                 echo '</div>';
+             echo '</div>';
+         echo '</div>';
+     echo '</div>';
+    $i = $i + 1;
   } else if($i == 1) {
-    echo '<div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">';
-      echo '<div class="my-3 py-3">';
-          echo '<h2 class="display-5">' . $menu['title'] . '</h2>';
-          echo '<p class="lead">' . $menu['description'] . '</p>';
-      echo '</div>';
-      echo '<div class="plat-bg bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url("img/' . $menu['img'] . '.png");">';
-          echo '<a class="btn btn-outline-dark font-weight-bold" style="margin-top: 250px; border: 3px solid black;" href="#">Visualisez</a>';
-      echo '</div>';
-    echo '</div>';
-  $i = $i - 1;
+     echo '<div class="card">';
+        echo '<div class="card-body">';
+             echo '<img src="img/plat1.png" class="round mx-auto d-block" alt="" style="border-radius: 50%;height: 98px;width: 98px;">';
+             echo '<div class="d-flex justify-content-between align-items-center">';
+                 echo '<div>';
+                     echo '<h5 class="title">' .$menu['title'].'</h5>';
+                     echo '<p class="description">'.$menu['description'].'</p>';
+                     echo '</div>';
+                     echo '<div>';
+                     echo '<hr/> <p class="price">$15</p> <hr/>';
+                 echo '</div>';
+             echo '</div>';
+         echo '</div>';
+     echo '</div>';
+     $i = $i - 1;
   }
-
   }
   ?>
 </div>
